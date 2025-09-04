@@ -1,0 +1,13 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/login": "pages/login.js",
+  "/summary": "pages/summary.js",
+  "/dashboard": "pages/dashboard.js",
+  "/api/summary": "pages/api/summary.js",
+  "/questionnaire": "pages/questionnaire.js",
+  "/api/responses": "pages/api/responses.js",
+  "/": "pages/index.js",
+  "/api/questions": "pages/api/questions.js"
+}
