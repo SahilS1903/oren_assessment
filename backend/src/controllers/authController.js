@@ -73,8 +73,25 @@ const register = async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Registration error:', error);
-    res.status(500).json({ error: 'Internal server error during registration' });
+    console.error('Registration error details:', {
+      message: error.message,
+      code: error.code,
+      stack: error.stack
+    });
+    
+    // Handle specific Prisma errors
+    if (error.code === 'P2002') {
+      return res.status(400).json({ error: 'User with this email already exists' });
+    }
+    
+    if (error.code?.startsWith('P')) {
+      return res.status(500).json({ error: 'Database connection error' });
+    }
+    
+    res.status(500).json({ 
+      error: 'Internal server error during registration',
+      details: process.env.NODE_ENV === 'production' ? 'Contact support' : error.message
+    });
   }
 };
 
