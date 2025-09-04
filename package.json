@@ -12,7 +12,7 @@
     "db:migrate": "npx prisma migrate dev",
     "db:seed": "node scripts/seed.js",
     "postinstall": "npx prisma generate",
-    "vercel-build": "npx prisma generate && npx prisma db push && next build"
+    "vercel-build": "npx prisma generate && next build"
   },
   "dependencies": {
     "next": "^14.0.0",
