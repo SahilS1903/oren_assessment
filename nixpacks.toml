@@ -1,0 +1,14 @@
+[variables]
+NIXPACKS_PATH = "backend"
+
+[phases.setup]
+nixPkgs = ["nodejs", "npm"]
+
+[phases.install]
+cmd = "cd backend && npm install"
+
+[phases.build]
+cmd = "cd backend && npm run build"
+
+[start]
+cmd = "cd backend && npm start"
