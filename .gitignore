@@ -61,3 +61,4 @@ temp/
 
 # Prisma
 prisma/migrations/
+.vercel

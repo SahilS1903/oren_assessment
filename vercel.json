@@ -5,6 +5,7 @@
   "installCommand": "npm install",
   "devCommand": "npm run dev",
   "regions": ["iad1"],
+  "rootDirectory": "./",
   "env": {
     "JWT_SECRET": "@jwt-secret",
     "DATABASE_URL": "@database-url",
