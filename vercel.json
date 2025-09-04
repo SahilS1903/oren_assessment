@@ -1,0 +1,25 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
+  "regions": ["iad1"],
+  "env": {
+    "JWT_SECRET": "@jwt-secret",
+    "DATABASE_URL": "@database-url",
+    "DIRECT_URL": "@direct-url"
+  },
+  "build": {
+    "env": {
+      "JWT_SECRET": "@jwt-secret",
+      "DATABASE_URL": "@database-url", 
+      "DIRECT_URL": "@direct-url"
+    }
+  },
+  "functions": {
+    "pages/api/**/*.js": {
+      "maxDuration": 30
+    }
+  }
+}
