@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 import toast from 'react-hot-toast'
@@ -43,7 +45,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       const message = error.response?.data?.error || 'Login failed'
       toast.error(message)
-      return { success: false, error: message }
+      throw new Error(message)
     }
   }
 
@@ -62,7 +64,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       const message = error.response?.data?.error || 'Registration failed'
       toast.error(message)
-      return { success: false, error: message }
+      throw new Error(message)
     }
   }
 

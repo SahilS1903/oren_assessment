@@ -14,10 +14,15 @@ const Questionnaire = () => {
   const router = useRouter()
 
   useEffect(() => {
+    if (!authLoading && !user) {
+      router.push('/login')
+      return
+    }
+    
     if (user) {
       fetchQuestions()
     }
-  }, [user])
+  }, [user, authLoading, router])
 
   const fetchQuestions = async () => {
     try {
@@ -41,7 +46,23 @@ const Questionnaire = () => {
     }
   }
 
-  if (authLoading || loading) {
+  // Show loading while checking authentication
+  if (authLoading) {
+    return (
+      <Layout title="Questionnaire - ESG Platform">
+        <div className="flex justify-center items-center min-h-64">
+          <div className="text-lg">Loading...</div>
+        </div>
+      </Layout>
+    )
+  }
+
+  // Redirect if not authenticated
+  if (!user) {
+    return null
+  }
+
+  if (loading) {
     return (
       <Layout title="Questionnaire - ESG Platform">
         <div className="flex justify-center items-center min-h-64">

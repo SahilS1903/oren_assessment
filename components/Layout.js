@@ -1,9 +1,18 @@
+'use client'
+
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useAuth } from '../contexts/AuthContext'
 
 const Layout = ({ children, title = 'ESG Questionnaire Platform' }) => {
   const { user, logout } = useAuth()
+  const router = useRouter()
+
+  const handleLogout = () => {
+    logout()
+    router.push('/')
+  }
 
   return (
     <>
@@ -44,7 +53,7 @@ const Layout = ({ children, title = 'ESG Questionnaire Platform' }) => {
                   <>
                     <span className="text-gray-700 text-sm">Welcome, {user.name}</span>
                     <button
-                      onClick={logout}
+                      onClick={handleLogout}
                       className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
                     >
                       Logout
