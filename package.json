@@ -7,9 +7,21 @@
     "start": "cd backend && npm start",
     "build": "cd backend && npm run build",
     "dev": "cd backend && npm run dev",
-    "postinstall": "cd backend && npm install"
+    "postinstall": "cd backend && npm install && cd backend && npx prisma generate"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.3.1",
+    "@prisma/client": "^5.3.1",
+    "prisma": "^5.3.1",
+    "express-rate-limit": "^6.10.0",
+    "express-validator": "^7.0.1"
+  },
   "keywords": ["esg", "questionnaire", "api", "railway"],
   "author": "ESG Platform Team",
   "license": "MIT"

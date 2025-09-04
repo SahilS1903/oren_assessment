@@ -67,6 +67,36 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Database test endpoint
+app.get('/db-test', async (req, res) => {
+  try {
+    const { PrismaClient } = require('@prisma/client');
+    const prisma = new PrismaClient();
+    
+    // Test database connection
+    await prisma.$connect();
+    
+    // Try to count users
+    const userCount = await prisma.user.count();
+    
+    await prisma.$disconnect();
+    
+    res.status(200).json({ 
+      status: 'database ok',
+      userCount,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error('Database test error:', error);
+    res.status(500).json({ 
+      status: 'database error',
+      error: error.message,
+      code: error.code,
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
 // API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/questions', questionRoutes);
