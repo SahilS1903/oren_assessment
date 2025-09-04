@@ -1,0 +1,16 @@
+{
+  "name": "esg-backend-railway",
+  "version": "1.0.0",
+  "description": "ESG Questionnaire Platform Backend API for Railway",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "build": "cd backend && npm run build",
+    "dev": "cd backend && npm run dev",
+    "postinstall": "cd backend && npm install"
+  },
+  "dependencies": {},
+  "keywords": ["esg", "questionnaire", "api", "railway"],
+  "author": "ESG Platform Team",
+  "license": "MIT"
+}

@@ -1,11 +1,11 @@
 [variables]
-NIXPACKS_PATH = "backend"
+NODE_VERSION = "18"
 
 [phases.setup]
-nixPkgs = ["nodejs", "npm"]
+nixPkgs = ["nodejs_18", "npm"]
 
 [phases.install]
-cmd = "cd backend && npm install"
+cmd = "cd backend && npm install && npx prisma generate"
 
 [phases.build]
 cmd = "cd backend && npm run build"
