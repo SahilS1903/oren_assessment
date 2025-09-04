@@ -1,0 +1,36 @@
+{
+  "name": "esg-backend",
+  "version": "1.0.0",
+  "description": "ESG Questionnaire Platform Backend API",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "build": "echo 'No build step required for JavaScript'",
+    "db:migrate": "npx prisma migrate dev",
+    "db:generate": "npx prisma generate",
+    "db:seed": "node src/scripts/seed.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.3.1",
+    "@prisma/client": "^5.3.1",
+    "prisma": "^5.3.1",
+    "express-rate-limit": "^6.10.0",
+    "express-validator": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["esg", "questionnaire", "api", "sustainability"],
+  "author": "ESG Platform Team",
+  "license": "MIT",
+  "prisma": {
+    "seed": "node src/scripts/seed.js"
+  }
+}
