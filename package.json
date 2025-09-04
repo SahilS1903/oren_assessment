@@ -1,13 +1,16 @@
 {
-  "name": "esg-backend-railway",
+  "name": "esg-backend",
   "version": "1.0.0",
-  "description": "ESG Questionnaire Platform Backend API for Railway",
-  "main": "backend/src/server.js",
+  "description": "ESG Questionnaire Platform Backend API",
+  "main": "src/server.js",
   "scripts": {
-    "start": "cd backend && npm start",
-    "build": "cd backend && npm run build",
-    "dev": "cd backend && npm run dev",
-    "postinstall": "cd backend && npm install && cd backend && npx prisma generate"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "build": "npx prisma generate",
+    "postinstall": "npx prisma generate",
+    "db:migrate": "npx prisma migrate dev",
+    "db:generate": "npx prisma generate",
+    "db:seed": "node src/scripts/seed.js"
   },
   "dependencies": {
     "express": "^4.18.2",
@@ -22,7 +25,13 @@
     "express-rate-limit": "^6.10.0",
     "express-validator": "^7.0.1"
   },
-  "keywords": ["esg", "questionnaire", "api", "railway"],
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["esg", "questionnaire", "api", "sustainability"],
   "author": "ESG Platform Team",
-  "license": "MIT"
+  "license": "MIT",
+  "prisma": {
+    "seed": "node src/scripts/seed.js"
+  }
 }
